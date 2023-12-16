@@ -1,6 +1,26 @@
-function ContactRow({ contact }) {
+function ContactRow({ setSelectedContact, contact }) {
     return (
-        <tr>
+      <tr
+        onClick={() => {
+          setSelectedContact(contact);
+        }}
+      >
+        <td>{contact.name}</td>
+        <td>{contact.email}</td>
+        <td>{contact.phone}</td>
+      </tr>
+    );
+  }
+  
+  export default ContactRow;
+
+/*function ContactRow({ setSelectedContact, contact }) {
+    return (
+        <tr
+            onClick={() => {
+                setSelectedContact(contact);
+            }}
+        >
             <td>{ contact.name }</td>
             <td>{ contact.email }</td>
             <td>{ contact.phone }</td>
@@ -8,4 +28,4 @@ function ContactRow({ contact }) {
     )
 }
 
-export default ContactRow
+export default ContactRow*/
