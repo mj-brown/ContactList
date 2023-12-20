@@ -1,31 +1,15 @@
-function ContactRow({ setSelectedContact, contact }) {
-    return (
-      <tr
-        onClick={() => {
-          setSelectedContact(contact);
-        }}
-      >
-        <td>{contact.name}</td>
-        <td>{contact.email}</td>
-        <td>{contact.phone}</td>
-      </tr>
-    );
-  }
-  
-  export default ContactRow;
-
-/*function ContactRow({ setSelectedContact, contact }) {
-    return (
-        <tr
-            onClick={() => {
-                setSelectedContact(contact);
-            }}
-        >
-            <td>{ contact.name }</td>
-            <td>{ contact.email }</td>
-            <td>{ contact.phone }</td>
-        </tr>
-    )
+function ContactRow({ contact, onContactClick }) {
+  return (
+    <tr
+      onClick={() => {
+        onContactClick(contact.id);
+      }}
+    >
+      <td className="contactTable">{contact.name}</td>
+      <td className="contactTable">{contact.email}</td>
+      <td className="contactTable">{contact.phone}</td>
+    </tr>
+  );
 }
 
-export default ContactRow*/
+export default ContactRow;

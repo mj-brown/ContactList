@@ -1,42 +1,103 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
+  max-width: 1280px;
   padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  align-items: center;
+  background-color: rgba(251, 252, 232, 0.9);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#header {
+  margin: 0px 10px 20px 10px;
+  width: 80%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+h1 {
+  color: #06044a;
+  font-family: "Abril Fatface", serif;
+  text-align: center;
+  text-shadow: 0.5px 0.5px 3px #696966;
 }
 
-.card {
-  padding: 2em;
+table,
+th,
+td {
+  border-collapse: collapse;
 }
 
-.read-the-docs {
-  color: #888;
+table {
+  border: 10px solid black;
+  box-shadow: 10px 10px 15px #696966;
+}
+
+th,
+td {
+  border: 5px solid black;
+  box-shadow: inset -1px -1px 5px black;
+  height: 30px;
+  padding: 10px 15px;
+  width: auto;
+}
+
+th {
+  background-color: rgba(186, 209, 182, 0.6);
+  box-shadow: -1px -1px 5px black;
+  font-family: "Days One", sans-serif;
+  font-size: 2rem;
+}
+
+td {
+  box-shadow: inset -1px -1px 5px black;
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 1.2rem;
+}
+
+.contactTable {
+  cursor: pointer;
+}
+
+.colHeader {
+  background-color: rgba(182, 197, 209, 0.8);
+}
+
+.rowHeader {
+  background-color: rgba(182, 197, 209, 0.8);
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 1.2rem;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(199, 199, 195, 0.7);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #fcfcfc;
+}
+
+.button {
+  background-color: #fcfcfc;
+  border-radius: 40px;
+  border: 5px solid #451515;
+  box-shadow: 2px 2px 5px black;
+  color: #451515;
+  font-family: "Abril Fatface", serif;
+  font-size: 30px;
+  margin: 20px;
+  width: 50%;
+}
+
+.button:hover {
+  background-color: #451515;
+  border: 3px solid black;
+  box-shadow: inset -2px -2px 5px black;
+  color: #fcfcfc;
 }

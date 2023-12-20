@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
-import './App.css'
-import ContactList from './components/ContactList'
-import SelectedContact from './components/SelectedContact'
+import { useState, useEffect } from "react";
+import "./App.css";
+import ContactList from "./components/ContactList";
+import SelectedContact from "./components/SelectedContact";
 
 const dummyContacts = [
   { id: 1, name: "R2-D2", phone: "222-222-2222", email: "r2d2@droids.com" },
@@ -11,12 +11,14 @@ const dummyContacts = [
 
 function App() {
   const [contacts, setContacts] = useState(dummyContacts);
-  const [selectedContact, setSelectedContact] = useState(null);
+  const [selectedContactId, setSelectedContactId] = useState(null);
 
   useEffect(() => {
     async function fetchContacts() {
       try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/users"
+        );
         const result = await response.json();
         setContacts(result);
       } catch (error) {
@@ -26,47 +28,28 @@ function App() {
     fetchContacts();
   }, []);
 
+  const handleContactClick = (contactId) => {
+    setSelectedContactId(contactId);
+  };
+
+  const handleBackClick = () => {
+    setSelectedContactId(null);
+  };
+
   return (
     <>
-      {selectedContact ? (
-        <SelectedContact selectedContact={selectedContact} />
+      {selectedContactId ? (
+        <SelectedContact
+          selectedContact={contacts.find(
+            (contact) => contact.id === selectedContactId
+          )}
+          onBack={handleBackClick}
+        />
       ) : (
-        <ContactList contacts={contacts} setSelectedContact={setSelectedContact} />
+        <ContactList contacts={contacts} onContactClick={handleContactClick} />
       )}
     </>
   );
 }
 
 export default App;
-
-
-/*
-function App() {
-  const [contacts, setContacts] = useState(dummyContacts);
-  const [selectedContact, setSelectedContact] = useState(null);
-
-  useEffect(()=>{
-    async function fetchContacts() {
-      try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/users");
-        const result = await response.json();
-        setContacts(result);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    fetchContacts()
-  }, []);
-
-  return (
-    <>
-      {selectedContact ? (
-        <SelectedContact selectedContact={selectedContact} />
-      ) : (
-        <ContactList contacts={contacts} setSelectedContact={setSelectedContact} />  
-      )}
-    </>
-  );
-}
-
-export default <App></App*/

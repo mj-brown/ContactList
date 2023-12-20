@@ -1,6 +1,6 @@
 import ContactRow from "./ContactRow";
 
-function ContactList({ contacts, setSelectedContact }) {
+function ContactList({ contacts, onContactClick }) {
   return (
     <table>
       <thead>
@@ -10,12 +10,16 @@ function ContactList({ contacts, setSelectedContact }) {
       </thead>
       <tbody>
         <tr>
-          <td>Name</td>
-          <td>Email</td>
-          <td>Phone</td>
+          <td className="colHeader">Name</td>
+          <td className="colHeader">Email</td>
+          <td className="colHeader">Phone</td>
         </tr>
         {contacts.map((contact) => (
-          <ContactRow key={contact.id} contact={contact} setSelectedContact={setSelectedContact} />
+          <ContactRow
+            key={contact.id}
+            contact={contact}
+            onContactClick={onContactClick}
+          />
         ))}
       </tbody>
     </table>
@@ -23,29 +27,3 @@ function ContactList({ contacts, setSelectedContact }) {
 }
 
 export default ContactList;
-
-/*import ContactRow from "./ContactRow";
-
-function ContactList({ contacts, setSelectedContactId }) {
-    return (
-        <table>
-            <thead>
-                <tr>
-                    <th colSpan="3">Contact List</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Name</td>
-                    <td>Email</td>
-                    <td>Phone</td>
-                </tr>
-                {contacts.map((contact) => {
-                    return <ContactRow key={contact.id} contact={contact} />;
-                })}
-            </tbody>
-        </table>
-    );
-}
-
-export default ContactList*/
